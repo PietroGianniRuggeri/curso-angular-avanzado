@@ -93,6 +93,20 @@
                   "with": "src/environments/environment.testing.ts"
                 }
               ]
+            },
+            "staging": {
+              "buildOptimizer": true,
+              "optimization": true,
+              "vendorChunk": false,
+              "extractLicenses": true,
+              "sourceMap": false,
+              "namedChunks": false,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.staging.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -105,6 +119,12 @@
             },
             "development": {
               "buildTarget": "store:build:development"
+            },
+            "testing": {
+              "buildTarget": "store:build:testing"
+            },
+            "staging": {
+              "buildTarget": "store:build:staging"
             }
           },
           "defaultConfiguration": "development"
