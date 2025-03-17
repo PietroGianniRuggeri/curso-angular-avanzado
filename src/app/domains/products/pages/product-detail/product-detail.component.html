@@ -4,10 +4,14 @@
   <div class="w-full flex flex-col md:flex-row md:space-x-10">
     <div class="flex flex-col w-full md:w-1/3">
       <div class="w-full rounded border border-gray-200">
-        <img
-          alt="ecommerce"
-          class="w-full object-cover object-center"
-          [src]="cover()" />
+        <div class="relative h-96">
+          <img
+            [fill]="true"
+            priority
+            alt="ecommerce"
+            class="w-full object-cover object-center"
+            [ngSrc]="cover()" />
+        </div>
       </div>
       <div class="flex items-center justify-center mt-1">
         <div class="grid grid-cols-3 gap-1">
@@ -15,7 +19,10 @@
             <img
               alt="ecommerce"
               class="object-cover object-center rounded border-2 border-gray-200"
-              [src]="img"
+              [ngSrc]="img"
+              priority="true"
+              width="80"
+              height="80"
               (click)="changeCover(img)"
               (keyup.enter)="changeCover(img)"
               tabindex="0"
