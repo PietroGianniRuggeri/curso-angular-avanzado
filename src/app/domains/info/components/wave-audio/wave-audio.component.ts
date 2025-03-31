@@ -1,11 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  ViewChild,
-  signal,
-  AfterViewInit,
-  input,
-} from '@angular/core';
+import { Component, ElementRef, ViewChild, signal, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import WaveSurfer from 'wavesurfer.js';
@@ -16,7 +9,7 @@ import { afterNextRender } from '@angular/core';
   imports: [CommonModule],
   templateUrl: './wave-audio.component.html',
 })
-export class WaveAudioComponent implements AfterViewInit {
+export class WaveAudioComponent {
   readonly audioUrl = input.required<string>();
   @ViewChild('wave') container!: ElementRef;
   private ws!: WaveSurfer;
