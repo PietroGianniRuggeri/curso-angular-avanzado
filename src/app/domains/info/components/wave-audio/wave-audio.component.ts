@@ -4,11 +4,12 @@ import {
   ViewChild,
   signal,
   AfterViewInit,
-  input
+  input,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import WaveSurfer from 'wavesurfer.js';
+import { afterNextRender } from '@angular/core';
 
 @Component({
   selector: 'app-wave-audio',
@@ -21,13 +22,15 @@ export class WaveAudioComponent implements AfterViewInit {
   private ws!: WaveSurfer;
   isPlaying = signal(false);
 
-  ngAfterViewInit() {
-    this.ws = WaveSurfer.create({
-      url: this.audioUrl(),
-      container: this.container.nativeElement,
+  constructor() {
+    afterNextRender(() => {
+      this.ws = WaveSurfer.create({
+        url: this.audioUrl(),
+        container: this.container.nativeElement,
+      });
+      this.ws.on('play', () => this.isPlaying.set(true));
+      this.ws.on('pause', () => this.isPlaying.set(false));
     });
-    this.ws.on('play', () => this.isPlaying.set(true));
-    this.ws.on('pause', () => this.isPlaying.set(false));
   }
 
   playPause() {

@@ -1,4 +1,11 @@
-import { Component, inject, signal, OnInit, input, computed } from '@angular/core';
+import {
+  Component,
+  inject,
+  signal,
+  OnInit,
+  input,
+  computed,
+} from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { ProductService } from '@shared/services/product.service';
 import { Product } from '@shared/models/product.model';
